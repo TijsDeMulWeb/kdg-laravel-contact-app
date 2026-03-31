@@ -75,6 +75,13 @@ class ContactController extends Controller
         return redirect("/contacts")->with('success', 'Contact succesvol bijgewerkt!');
     }
 
+    public function activate(Contact $contact)
+    {
+        $contact->restore();
+
+        return redirect("/contacts");
+    }
+
     /**
      * Remove the specified resource from storage.
      */
