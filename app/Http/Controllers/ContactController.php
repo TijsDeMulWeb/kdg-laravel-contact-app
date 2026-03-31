@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         return view('contacts.index', [
-            'contacts' => Auth::user()->contacts()->withTrashed()->get()
+            'contacts' => Auth::user()->contacts()->withTrashed()->paginate(5)
         ]);
     }
 
@@ -56,6 +56,10 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
+        if ($contact->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized');
+        }
+
         return view('contacts.edit', [
             'contact' => $contact
         ]);
@@ -89,6 +93,6 @@ class ContactController extends Controller
     {
         $contact->delete();
 
-        return redirect("/contacts");
+        return redirect("/contacts")->with('success', 'Contact succesvol verwijderd!');
     }
 }
