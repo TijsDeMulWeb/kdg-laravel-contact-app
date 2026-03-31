@@ -54,14 +54,24 @@
                                 </button>
                                 <el-menu anchor="bottom end" popover
                                     class="w-32 origin-top-right rounded-md bg-white py-2 shadow-lg outline-1 outline-gray-900/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-                                    <form action="/contacts/{{ $contact->id }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                            class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Delete<span
-                                                class="sr-only"></span></button>
-                                    </form>
-                                    <a href="/contacts/{{ $contact->id }}/edit" class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Edit</a>
+                                    @if ($contact->deleted_at == null)
+                                        <form action="/contacts/{{ $contact->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Delete<span
+                                                    class="sr-only"></span></button>
+                                        </form>
+                                        <a href="/contacts/{{ $contact->id }}/edit" class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Edit</a>
+                                    @else
+                                        <form action="/contacts/{{ $contact->id }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit"
+                                                class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Activate<span
+                                                    class="sr-only"></span></button>
+                                        </form>
+                                    @endif
                                 </el-menu>
                             </el-dropdown>
                         </div>
