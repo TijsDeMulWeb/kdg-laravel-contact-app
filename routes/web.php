@@ -13,6 +13,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/contacts/store', [ContactController::class, 'store']);
     Route::delete('/contacts/{contact}', [ContactController::class, 'destroy']);
     Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit']);
+    Route::put('/contacts/{contact}/edit', [ContactController::class, 'update']);
 });
 
 Route::middleware('guest')->group(function () {
