@@ -66,7 +66,13 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $contact->update([
+            'first_name' => request('firstName'),
+            'last_name' => request('lastName'),
+            'email' => request('email'),
+        ]);
+
+        return redirect("/contacts")->with('success', 'Contact succesvol bijgewerkt!');
     }
 
     /**
