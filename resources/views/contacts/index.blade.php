@@ -61,6 +61,7 @@
                                             class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Delete<span
                                                 class="sr-only"></span></button>
                                     </form>
+                                    <a href="/contacts/{{ $contact->id }}/edit" class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Edit</a>
                                 </el-menu>
                             </el-dropdown>
                         </div>
