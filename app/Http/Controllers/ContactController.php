@@ -37,7 +37,7 @@ class ContactController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect('/contacts');
+        return redirect('/contacts')->with('success', 'Contact succesvol toegevoegd!');
     }
 
     /**
