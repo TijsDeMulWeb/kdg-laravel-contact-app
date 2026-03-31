@@ -4,9 +4,12 @@ use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'destroy']);
+    Route::get('/contacts', [ContactController::class, 'show']);
+
 });
 
 Route::middleware('guest')->group(function () {
