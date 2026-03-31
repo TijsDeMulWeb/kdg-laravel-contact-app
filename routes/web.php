@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [LoginController::class, 'destroy']);
+});
+
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'show']);
     Route::post('/register', [RegisterController::class, 'store']);
