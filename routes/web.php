@@ -10,6 +10,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'destroy']);
     Route::get('/contacts', [ContactController::class, 'index']);
     Route::get('/contacts/create', [ContactController::class, 'create']);
+    Route::post('/contacts/store', [ContactController::class, 'store']);
 });
 
 Route::middleware('guest')->group(function () {
@@ -19,3 +20,4 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'show'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 });
+  
