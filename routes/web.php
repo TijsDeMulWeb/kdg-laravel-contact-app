@@ -9,7 +9,7 @@ use App\Http\Controllers\ContactController;
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'destroy']);
     Route::get('/contacts', [ContactController::class, 'index']);
-
+    Route::get('/contacts/create', [ContactController::class, 'create']);
 });
 
 Route::middleware('guest')->group(function () {
