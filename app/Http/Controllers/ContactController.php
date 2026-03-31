@@ -33,7 +33,7 @@ class ContactController extends Controller
     public function store(ContactRequest $request)
     {
         $request->validated();
-        
+
         Auth::user()->contacts()->create([
             'first_name' => $request->firstName,
             'last_name' => $request->lastName,
@@ -72,6 +72,8 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+
+        return redirect("/contacts");
     }
 }
