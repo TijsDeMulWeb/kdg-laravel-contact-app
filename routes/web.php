@@ -12,7 +12,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/contacts/create', [ContactController::class, 'create']);
     Route::post('/contacts/store', [ContactController::class, 'store']);
     Route::delete('/contacts/{contact}', [ContactController::class, 'destroy']);
-    Route::put('/contacts/{contact}', [ContactController::class, 'activate']);
+    Route::put('/contacts/{contact}', [ContactController::class, 'activate'])->withTrashed();
     Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit']);
     Route::put('/contacts/{contact}/edit', [ContactController::class, 'update']);
 });
