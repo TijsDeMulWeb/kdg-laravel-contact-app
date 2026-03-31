@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </head>
 
-<body>
+<body class="h-full bg-white dark:bg-gray-900">
     <x-nav />
     {{ $slot }}
 </body>
