@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         return view('contacts.index', [
-            'contacts' => Auth::user()->contacts
+            'contacts' => Auth::user()->contacts()->withTrashed()->get()
         ]);
     }
 
