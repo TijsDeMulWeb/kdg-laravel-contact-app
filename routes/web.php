@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'show']);
+    Route::post('/register', [RegisterController::class, 'store']);
     
     Route::get('/login', [LoginController::class, 'show']);
 });
