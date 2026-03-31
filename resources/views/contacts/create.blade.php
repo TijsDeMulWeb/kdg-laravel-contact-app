@@ -1,3 +1,3 @@
 <x-layout>
-    <x-contacts.form btn="Save"></x-contacts>
+    <x-contacts.form btn="Save" action="/contacts/store"></x-contacts>
 </x-layout>

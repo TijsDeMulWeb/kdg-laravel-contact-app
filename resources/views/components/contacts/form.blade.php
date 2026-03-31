@@ -1,10 +1,11 @@
 @props([
     'contact' => null,
+    'action' => '/contacts',
     'method' => null,
     'btn' => 'Save'
 ])
 
-<form action="/contacts/store" method="POST">
+<form action="{{ $action }}" method="POST">
     @csrf
     @if ($method)
         @method($method)
