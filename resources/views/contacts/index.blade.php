@@ -21,23 +21,48 @@
         @foreach ($contacts as $contact)
             <div class="mx-5">
                 <ul role="list" class="divide-y divide-gray-100 dark:divide-white/5">
-                    <li class="flex justify-between gap-x-6 py-5">
-                        <div class="flex min-w-0 gap-x-4">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                alt=""
-                                class="size-12 flex-none rounded-full bg-gray-50 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10" />
-                            <div class="min-w-0 flex-auto">
+                    <li class="flex items-center justify-between gap-x-6 py-5">
+                        <div class="min-w-0">
+                            <div class="flex items-start gap-x-3">
                                 <p class="text-sm/6 font-semibold text-gray-900 dark:text-white">{{ $contact->first_name }}
                                     {{ $contact->last_name }}
                                 </p>
-                                <p class="mt-1 truncate text-xs/5 text-gray-500 dark:text-gray-400">{{ $contact->email }}
-                                </p>
+                                @if ($contact->deleted_at == null)
+                                    <p class="mt-0.5 rounded-md bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">Active</p>
+                                @else
+                                    <p class="mt-0.5 rounded-md bg-red-50 px-1.5 py-0.5 text-xs font-medium text-red-700 inset-ring inset-ring-red-600/20 dark:bg-red-400/10 dark:text-red-400 dark:inset-ring-red-500/20">Inactive</p>
+                                @endif  
+                            </div>
+                            <div class="mt-1 flex items-center gap-x-2 text-xs/5 text-gray-500 dark:text-gray-400">
+                                <p class="truncate">Created on {{ $contact->created_at->format('M j, Y') }}</p>
                             </div>
                         </div>
-                        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                            <p class="text-sm/6 text-gray-900 dark:text-white">Co-Founder / CEO</p>
-                            <p class="mt-1 text-xs/5 text-gray-500 dark:text-gray-400">Last seen <time
-                                    datetime="2023-01-23T13:23Z">3h ago</time></p>
+                        <div class="flex flex-none items-center gap-x-4">
+                            <a href="#"
+                                class="hidden rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50 sm:block dark:bg-white/10 dark:text-white dark:shadow-none dark:inset-ring-white/5 dark:hover:bg-white/20">View
+                                contact<span class="sr-only"></span></a>
+                            <el-dropdown class="relative flex-none">
+                                <button
+                                    class="relative block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                    <span class="absolute -inset-2.5"></span>
+                                    <span class="sr-only">Open options</span>
+                                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
+                                        class="size-5">
+                                        <path
+                                            d="M10 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM10 8.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM11.5 15.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
+                                    </svg>
+                                </button>
+                                <el-menu anchor="bottom end" popover
+                                    class="w-32 origin-top-right rounded-md bg-white py-2 shadow-lg outline-1 outline-gray-900/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+                                    <form action="/contacts/{{ $contact->id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Delete<span
+                                                class="sr-only"></span></button>
+                                    </form>
+                                </el-menu>
+                            </el-dropdown>
                         </div>
                     </li>
                 </ul>
