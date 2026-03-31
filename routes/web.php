@@ -8,7 +8,7 @@ use App\Http\Controllers\ContactController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'destroy']);
-    Route::get('/contacts', [ContactController::class, 'show']);
+    Route::get('/contacts', [ContactController::class, 'index']);
 
 });
 
@@ -16,6 +16,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'show']);
     Route::post('/register', [RegisterController::class, 'store']);
     
-    Route::get('/login', [LoginController::class, 'show']);
+    Route::get('/login', [LoginController::class, 'show'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 });
