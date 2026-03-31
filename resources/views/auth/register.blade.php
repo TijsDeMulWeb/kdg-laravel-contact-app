@@ -15,7 +15,7 @@
                 <label for="firstName" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-100">First
                     Name</label>
                 <div class="mt-2">
-                    <input id="firstName" type="text" name="firstName" required autocomplete="firstName"
+                    <input id="firstName" type="text" name="firstName" autocomplete="firstName"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500" />
                 </div>
                 <x-form.error name='firstName' />
@@ -24,7 +24,7 @@
                 <label for="lastName" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-100">Last
                     Name</label>
                 <div class="mt-2">
-                    <input id="lastName" type="text" name="lastName" required autocomplete="lastName"
+                    <input id="lastName" type="text" name="lastName" autocomplete="lastName"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500" />
                 </div>
                 <x-form.error name='lastName' />
@@ -32,7 +32,7 @@
                 <label for="email" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-100">Email
                     address</label>
                 <div class="mt-2">
-                    <input id="email" type="email" name="email" required autocomplete="email"
+                    <input id="email" type="email" name="email" autocomplete="email"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500" />
                 </div>
                 <x-form.error name='email' />
@@ -43,7 +43,7 @@
                         class="block text-sm/6 font-medium text-gray-900 dark:text-gray-100">Password</label>
                 </div>
                 <div class="mt-2">
-                    <input id="password" type="password" name="password" required autocomplete="current-password"
+                    <input id="password" type="password" name="password" autocomplete="current-password"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500" />
                 </div>
                 <x-form.error name='password' />
