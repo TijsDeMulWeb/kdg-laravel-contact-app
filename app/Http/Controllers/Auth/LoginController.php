@@ -20,6 +20,10 @@ class LoginController extends Controller
 
             return redirect('/contacts');
         }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match'
+        ]);
     }
 
     /**
