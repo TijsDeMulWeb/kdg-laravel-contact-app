@@ -31,7 +31,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Auth::user()->contacts()->create([
+            'first_name' => $request->firstName,
+            'last_name' => $request->lastName,
+            'email' => $request->email,
+        ]);
+
+        return redirect('/contacts');
     }
 
     /**
