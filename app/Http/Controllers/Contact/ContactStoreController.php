@@ -10,11 +10,10 @@ class ContactStoreController extends Controller
 {
     public function __invoke(ContactRequest $request)
     {
-        $request->validated();
 
         Auth::user()->contacts()->create([
-            'first_name' => $request->firstName,
-            'last_name' => $request->lastName,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
         ]);
 

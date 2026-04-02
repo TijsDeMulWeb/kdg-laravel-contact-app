@@ -19,8 +19,8 @@ class ContactUpdateController extends Controller
         }
 
         $contact->update([
-            'first_name' => $request->firstName,
-            'last_name' => $request->lastName,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
         ]);
 
