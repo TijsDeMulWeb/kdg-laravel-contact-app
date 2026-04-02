@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Contact\ContactIndexController;
 use App\Http\Controllers\Contact\ContactActivateController;
 use App\Http\Controllers\Contact\ContactDeleteController;
 use App\Http\Controllers\Contact\ContactStoreController;
@@ -8,11 +9,10 @@ use App\Http\Controllers\Contact\ContactCreateController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\ContactController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'destroy']);
-    Route::get('/contacts', [ContactController::class, 'index']);
+    Route::get('/contacts', [ContactIndexController::class]);
     Route::get('/contacts/create', [ContactCreateController::class]);
     Route::post('/contacts/store', [ContactStoreController::class]);
     Route::delete('/contacts/{contact}', [ContactDeleteController::class]);
