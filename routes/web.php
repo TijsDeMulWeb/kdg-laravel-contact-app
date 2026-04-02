@@ -2,6 +2,7 @@
 use App\Http\Controllers\Contact\ContactActivateController;
 use App\Http\Controllers\Contact\ContactDeleteController;
 use App\Http\Controllers\Contact\ContactStoreController;
+use App\Http\Controllers\Contact\ContactEditController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -14,7 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/contacts/store', [ContactStoreController::class]);
     Route::delete('/contacts/{contact}', [ContactDeleteController::class]);
     Route::put('/contacts/{contact}', [ContactActivateController::class])->withTrashed();
-    Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit']);
+    Route::get('/contacts/{contact}/edit', [ContactEditController::class]);
     Route::put('/contacts/{contact}/edit', [ContactController::class, 'update']);
 });
 

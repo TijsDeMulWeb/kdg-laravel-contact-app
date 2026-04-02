@@ -28,28 +28,6 @@ class ContactController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
-    {
-        if ($contact->user_id !== Auth::id()) {
-            abort(403, 'Unauthorized');
-        }
-
-        return view('contacts.edit', [
-            'contact' => $contact
-        ]);
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(ContactRequest $request, Contact $contact)
