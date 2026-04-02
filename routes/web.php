@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\Auth\Login\LoginShowController;
+use App\Http\Controllers\Auth\Register\RegisterStoreController;
 use App\Http\Controllers\Contact\ContactIndexController;
 use App\Http\Controllers\Contact\ContactActivateController;
 use App\Http\Controllers\Contact\ContactDeleteController;
@@ -26,9 +28,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'show']);
-    Route::post('/register', [RegisterController::class, 'store']);
+    Route::post('/register', [RegisterStoreController::class]);
     
-    Route::get('/login', [LoginController::class, 'show'])->name('login');
-    Route::post('/login', [LoginController::class, 'login']);
+    Route::get('/login', [LoginShowController::class])->name('login');
+    Route::post('/login', [LoginController::class]);
 });
   
