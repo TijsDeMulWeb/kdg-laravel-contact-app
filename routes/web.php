@@ -18,7 +18,7 @@ use App\Http\Controllers\Auth\Login\LoginShowController;
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', LogoutController::class)->name('logout');
+    Route::post('/logout', LogoutController::class)->name('logout');
     Route::get('/contacts', ContactIndexController::class)->name('contacts.index');
     Route::get('/contacts/create', ContactCreateController::class)->name('contacts.create');
     Route::post('/contacts/store', ContactStoreController::class)->name('contacts.store');
