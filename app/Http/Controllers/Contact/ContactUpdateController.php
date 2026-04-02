@@ -18,11 +18,7 @@ class ContactUpdateController extends Controller
             abort(403, 'Unauthorized');
         }
 
-        $contact->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-        ]);
+        $contact->update($request->validated());
 
         return redirect()->route('contacts.index')->with('success', 'Contact succesvol bijgewerkt!');
     }
