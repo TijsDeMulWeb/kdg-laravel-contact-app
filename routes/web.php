@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\ContactActivateController;
+use App\Http\Controllers\ContactDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -9,8 +11,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/contacts', [ContactController::class, 'index']);
     Route::get('/contacts/create', [ContactController::class, 'create']);
     Route::post('/contacts/store', [ContactController::class, 'store']);
-    Route::delete('/contacts/{contact}', [ContactController::class, 'destroy']);
-    Route::put('/contacts/{contact}', [ContactController::class, 'activate'])->withTrashed();
+    Route::delete('/contacts/{contact}', [ContactDeleteController::class]);
+    Route::put('/contacts/{contact}', [ContactActivateController::class])->withTrashed();
     Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit']);
     Route::put('/contacts/{contact}/edit', [ContactController::class, 'update']);
 });
