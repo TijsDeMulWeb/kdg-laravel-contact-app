@@ -18,6 +18,6 @@ class ContactStoreController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect(route('contacts.index'))->with('success', 'Contact succesvol toegevoegd!');
+        return redirect()->route('contacts.index')->with('success', 'Contact succesvol toegevoegd!');
     }
 }

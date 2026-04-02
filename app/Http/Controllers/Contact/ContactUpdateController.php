@@ -24,6 +24,6 @@ class ContactUpdateController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect(route('contacts.index'))->with('success', 'Contact succesvol bijgewerkt!');
+        return redirect()->route('contacts.index')->with('success', 'Contact succesvol bijgewerkt!');
     }
 }

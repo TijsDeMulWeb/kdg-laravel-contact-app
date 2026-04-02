@@ -16,6 +16,6 @@ class ContactDeleteController extends Controller
 
         $contact->delete();
 
-        return redirect(route('contacts.index'))->with('success', 'Contact succesvol verwijderd!');
+        return redirect()->route('contacts.index')->with('success', 'Contact succesvol verwijderd!');
     }
 }

@@ -23,6 +23,7 @@ class RegisterStoreController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('contacts.index'));
+        
+        return redirect()->route('contacts.index');
     }
 }
