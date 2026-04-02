@@ -18,12 +18,4 @@ class ContactController extends Controller
             'contacts' => Auth::user()->contacts()->withTrashed()->paginate(5)
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('contacts.create');
-    }
 }
