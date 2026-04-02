@@ -1,6 +1,4 @@
 <?php
-use App\Http\Controllers\Auth\Login\LoginShowController;
-use App\Http\Controllers\Auth\Register\RegisterStoreController;
 use App\Http\Controllers\Contact\ContactIndexController;
 use App\Http\Controllers\Contact\ContactActivateController;
 use App\Http\Controllers\Contact\ContactDeleteController;
@@ -12,8 +10,12 @@ use App\Http\Controllers\Contact\ContactCreateController;
 use App\Http\Controllers\Auth\LogoutController;
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\Register\RegisterShowController;
+use App\Http\Controllers\Auth\Register\RegisterStoreController;
+
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\Login\LoginShowController;
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LogoutController::class]);
@@ -27,7 +29,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/register', [RegisterController::class, 'show']);
+    Route::get('/register', [RegisterShowController::class]);
     Route::post('/register', [RegisterStoreController::class]);
     
     Route::get('/login', [LoginShowController::class])->name('login');
