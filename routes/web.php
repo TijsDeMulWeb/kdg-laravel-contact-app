@@ -6,12 +6,15 @@ use App\Http\Controllers\Contact\ContactStoreController;
 use App\Http\Controllers\Contact\ContactEditController;
 use App\Http\Controllers\Contact\ContactUpdateController;
 use App\Http\Controllers\Contact\ContactCreateController;
+
+use App\Http\Controllers\Auth\LogoutController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [LoginController::class, 'destroy']);
+    Route::get('/logout', [LogoutController::class]);
     Route::get('/contacts', [ContactIndexController::class]);
     Route::get('/contacts/create', [ContactCreateController::class]);
     Route::post('/contacts/store', [ContactStoreController::class]);

@@ -36,14 +36,4 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        Auth::logout();
-
-        return redirect('/login');
-    }
 }
