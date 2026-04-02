@@ -1,6 +1,7 @@
 <?php
-use App\Http\Controllers\ContactActivateController;
-use App\Http\Controllers\ContactDeleteController;
+use App\Http\Controllers\Contact\ContactActivateController;
+use App\Http\Controllers\Contact\ContactDeleteController;
+use App\Http\Controllers\Contact\ContactStoreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
