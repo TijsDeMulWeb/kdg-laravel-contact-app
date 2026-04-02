@@ -85,17 +85,6 @@ class ContactController extends Controller
         return redirect("/contacts")->with('success', 'Contact succesvol bijgewerkt!');
     }
 
-    public function activate(Contact $contact)
-    {
-        if ($contact->user_id !== Auth::id()) {
-            abort(403, 'Unauthorized');
-        }
-
-        $contact->restore();
-
-        return redirect("/contacts");
-    }
-
     /**
      * Remove the specified resource from storage.
      */
