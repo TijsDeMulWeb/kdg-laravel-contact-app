@@ -68,12 +68,18 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Contact $contact)
+    public function update(ContactRequest $request, Contact $contact)
     {
+        $request->validated();
+
+        if ($contact->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized');
+        }
+
         $contact->update([
-            'first_name' => request('firstName'),
-            'last_name' => request('lastName'),
-            'email' => request('email'),
+            'first_name' => $request->firstName,
+            'last_name' => $request->lastName,
+            'email' => $request->email,
         ]);
 
         return redirect("/contacts")->with('success', 'Contact succesvol bijgewerkt!');
@@ -81,6 +87,10 @@ class ContactController extends Controller
 
     public function activate(Contact $contact)
     {
+        if ($contact->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized');
+        }
+
         $contact->restore();
 
         return redirect("/contacts");
@@ -91,6 +101,10 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
+        if ($contact->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized');
+        }
+
         $contact->delete();
 
         return redirect("/contacts")->with('success', 'Contact succesvol verwijderd!');
