@@ -59,7 +59,7 @@
                                 profile</a>
                             <a href="#"
                                 class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5">Settings</a>
-                            <a href="/logout"
+                            <a href="{{ route('logout') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5">Sign
                                 out</a>
                         </el-menu>

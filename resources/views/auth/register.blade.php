@@ -10,7 +10,7 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form action="/register" method="POST" class="space-y-6">
+            <form action="{{ route('register.store') }}" method="POST" class="space-y-6">
                 @csrf
                 <label for="firstName" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-100">First
                     Name</label>
@@ -54,7 +54,7 @@
 
             <p class="mt-10 text-center text-sm/6 text-gray-500 dark:text-gray-400">
                 Already an account?
-                <a href="/login"
+                <a href="{{ route('login') }}"
                     class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">Sign
                     in</a>
             </p>

@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Contact;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ContactUpdateController extends Controller
 {
-    public function __invoke(Contact $contact, Request $request)
+    public function __invoke(Contact $contact, ContactRequest $request)
     {
         $request->validated();
 
@@ -23,6 +24,6 @@ class ContactUpdateController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect("/contacts")->with('success', 'Contact succesvol bijgewerkt!');
+        return redirect(route('contacts.index'))->with('success', 'Contact succesvol bijgewerkt!');
     }
 }

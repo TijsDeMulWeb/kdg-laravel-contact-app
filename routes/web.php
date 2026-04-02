@@ -18,21 +18,21 @@ use App\Http\Controllers\Auth\Login\LoginShowController;
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', LogoutController::class);
-    Route::get('/contacts', ContactIndexController::class);
-    Route::get('/contacts/create', ContactCreateController::class);
-    Route::post('/contacts/store', ContactStoreController::class);
-    Route::delete('/contacts/{contact}', ContactDeleteController::class);
-    Route::put('/contacts/{contact}', ContactActivateController::class)->withTrashed();
-    Route::get('/contacts/{contact}/edit', ContactEditController::class);
-    Route::put('/contacts/{contact}/edit', ContactUpdateController::class);
+    Route::get('/logout', LogoutController::class)->name('logout');
+    Route::get('/contacts', ContactIndexController::class)->name('contacts.index');
+    Route::get('/contacts/create', ContactCreateController::class)->name('contacts.create');
+    Route::post('/contacts/store', ContactStoreController::class)->name('contacts.store');
+    Route::delete('/contacts/{contact}', ContactDeleteController::class)->name('contacts.delete');
+    Route::put('/contacts/{contact}', ContactActivateController::class)->withTrashed()->name('contacts.activate');
+    Route::get('/contacts/{contact}/edit', ContactEditController::class)->name('contacts.edit');
+    Route::put('/contacts/{contact}/edit', ContactUpdateController::class)->name('contacts.update');
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/register', RegisterShowController::class);
-    Route::post('/register', RegisterStoreController::class);
-    
+    Route::get('/register', RegisterShowController::class)->name('register');
+    Route::post('/register', RegisterStoreController::class)->name('register.store');
+
     Route::get('/login', LoginShowController::class)->name('login');
-    Route::post('/login', LoginController::class);
+    Route::post('/login', LoginController::class)->name('login.store');
 });
   

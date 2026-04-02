@@ -55,16 +55,16 @@
                                     <el-menu anchor="bottom end" popover
                                         class="w-32 origin-top-right rounded-md bg-white py-2 shadow-lg outline-1 outline-gray-900/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
                                         @if ($contact->deleted_at == null)
-                                            <form action="/contacts/{{ $contact->id }}" method="POST">
+                                            <form action="{{ route('contacts.delete', $contact->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
                                                     class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Delete<span
                                                         class="sr-only"></span></button>
                                             </form>
-                                            <a href="/contacts/{{ $contact->id }}/edit" class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Edit</a>
+                                            <a href="{{ route('contacts.edit', $contact->id) }}" class="block px-3 py-1 text-sm/6 text-gray-900 focus:bg-gray-50 focus:outline-hidden dark:text-white dark:focus:bg-white/5">Edit</a>
                                         @else
-                                            <form action="/contacts/{{ $contact->id }}" method="POST">
+                                            <form action="{{ route('contacts.activate', $contact->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <button type="submit"
@@ -90,7 +90,7 @@
             <h3 class="mt-2 text-sm font-semibold text-gray-900 dark:text-white">No contacts</h3>
             <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Get started by creating a new contact.</p>
             <div class="mt-6">
-                <a href="/contacts/create"
+                <a href="{{ route('contacts.create') }}"
                     class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:shadow-none dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500">
                     <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
                         class="mr-1.5 -ml-0.5 size-5">

@@ -10,7 +10,7 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form action="/login" method="POST" class="space-y-6">
+            <form action="{{ route('login.store') }}" method="POST" class="space-y-6">
                 @csrf
                 <label for="email" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-100">Email
                     address</label>
@@ -31,12 +31,12 @@
                 <x-form.error name='password' />
 
                 <button type="submit"
-                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:shadow-none dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500">Register</button>
+                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:shadow-none dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500">Login</button>
             </form>
 
             <p class="mt-10 text-center text-sm/6 text-gray-500 dark:text-gray-400">
                 Not an account?
-                <a href="/register"
+                <a href="{{ route('register') }}"
                     class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">Register</a>
             </p>
         </div>

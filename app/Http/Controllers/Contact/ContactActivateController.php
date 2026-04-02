@@ -11,6 +11,6 @@ class ContactActivateController extends Controller
     public function __invoke(Contact $contact)
     {
         $contact->restore();
-        return redirect('/contacts');
+        return redirect(route('contacts.index'))->with('success', 'Contact activated successfully.');
     }
 }
