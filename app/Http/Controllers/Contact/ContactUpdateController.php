@@ -12,8 +12,6 @@ class ContactUpdateController extends Controller
 {
     public function __invoke(Contact $contact, ContactRequest $request)
     {
-        $request->validated();
-
         if ($contact->user_id !== Auth::id()) {
             abort(403, 'Unauthorized');
         }
